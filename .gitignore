@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/osx,macos,vagrant
+# Created by https://www.gitignore.io/api/osx,macos,text,vagrant
 
 ### macOS ###
 *.DS_Store
@@ -40,7 +40,18 @@ Temporary Items
 
 # Directories potentially created on remote AFP share
 
+### Text ###
+*.doc
+*.docx
+*.log
+*.msg
+*.pages
+*.rtf
+*.txt
+*.wpd
+*.wps
+
 ### Vagrant ###
 .vagrant/
 
-# End of https://www.gitignore.io/api/osx,macos,vagrant
+# End of https://www.gitignore.io/api/osx,macos,text,vagrant
