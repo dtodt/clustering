@@ -13,7 +13,8 @@ apt-get update -y
 apt-get install -y infinit
 
 # add infinit to execution path
-echo "export PATH=/opt/infinit/bin/:$PATH"
+echo "export PATH=/opt/infinit/bin:$PATH" >> /etc/profile
+echo ". /etc/profile"
 
 # creates a new user
 # infinit-user --signup --name john --fullname "John Doe"
