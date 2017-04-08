@@ -1,17 +1,6 @@
 #!/bin/sh
 
 # Vagrant Cassandra Project
-# Brian Cantoni
-#
-# Provisioning several VMs at once can be pretty slow depending on the speed of
-# the Ubuntu mirrors at the time. This script creates the 3 VMs in series, then
-# provisions them in parallel.
-#
-# Try running this script instead of "vagrant up" when creating the VMs for the
-# first time.
-#
-# source:
-# http://joemiller.me/2012/04/26/speeding-up-vagrant-with-parallel-provisioning/
  
 MAX_PROCS=4
  
@@ -27,7 +16,7 @@ parallel_provision() {
  
 # start boxes sequentially to avoid vbox explosions
 vagrant up --no-provision
-
+ 
 # but run provision tasks in parallel
 cat <<EOF | parallel_provision
 node0
