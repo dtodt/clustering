@@ -7,7 +7,7 @@
 # Adjustable settings
 CFG_MEMSIZE = "512"    # max memory for each VM
 CFG_TZ = "America/Sao_Paulo"   # timezone
-SERVER_COUNT = 2
+SERVER_COUNT = 1
 NETWORK = '192.168.99.'
 FIRST_IP = 130
 
