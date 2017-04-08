@@ -13,7 +13,7 @@
 # source:
 # http://joemiller.me/2012/04/26/speeding-up-vagrant-with-parallel-provisioning/
  
-MAX_PROCS=4
+MAX_PROCS=1
  
 parallel_provision() {
     while read box; do
@@ -31,5 +31,4 @@ vagrant up --no-provision
 # but run provision tasks in parallel
 cat <<EOF | parallel_provision
 node0
-node1
 EOF
