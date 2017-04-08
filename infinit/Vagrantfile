@@ -16,7 +16,7 @@ nodes = "| parallel_provision"
 hosts = "127.0.0.1 localhost localhost.local\n"
 servers = []
 (0..SERVER_COUNT-1).each do |i|
-  name = 'node' + i.to_s
+  name = 'infinit' + i.to_s
   ip = NETWORK + (FIRST_IP + i).to_s
   servers << {'name' => name, 'ip' => ip}
 
