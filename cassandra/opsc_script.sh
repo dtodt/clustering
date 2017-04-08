@@ -4,8 +4,6 @@
 echo "#{CFG_TZ}" > /etc/timezone    
 dpkg-reconfigure -f noninteractive tzdata
 
-#{deb_cache_cmds}
-
 # configure repositories
 add-apt-repository ppa:openjdk-r/ppa
 curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -

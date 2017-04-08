@@ -7,11 +7,12 @@
 # Adjustable settings
 CFG_MEMSIZE = "512"    # max memory for each VM
 CFG_TZ = "America/Sao_Paulo"   # timezone
-SERVER_COUNT = 4
-NETWORK = '192.168.96.'
+SERVER_COUNT = 1
+NETWORK = '192.168.99.'
 FIRST_IP = 120
 
 # Configure VM servers
+nodes = "| parallel_provision"
 hosts = "127.0.0.1 localhost localhost.local\n"
 servers = []
 (0..SERVER_COUNT-1).each do |i|
@@ -19,6 +20,7 @@ servers = []
   ip = NETWORK + (FIRST_IP + i).to_s
   servers << {'name' => name, 'ip' => ip}
 
+  nodes << "\n" + name
   hosts << "\n" + name + "\t" + ip
 end
 

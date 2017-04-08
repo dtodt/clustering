@@ -27,7 +27,7 @@ parallel_provision() {
  
 # start boxes sequentially to avoid vbox explosions
 vagrant up --no-provision
- 
+
 # but run provision tasks in parallel
 cat <<EOF | parallel_provision
 node0

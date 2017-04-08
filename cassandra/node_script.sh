@@ -4,8 +4,6 @@
 echo "#{CFG_TZ}" > /etc/timezone    
 dpkg-reconfigure -f noninteractive tzdata
 
-#{deb_cache_cmds}
-
 # configure repositories
 curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
 echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
@@ -13,6 +11,7 @@ echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/a
 # install Java and a few base packages
 add-apt-repository ppa:openjdk-r/ppa
 apt-get update
+apt-get install -f -y
 apt-get install vim curl zip unzip git python-pip openjdk-8-jdk dsc30 cassandra-tools -y
 
 # stop Cassandra (which automatically starts after install) and clear data files
