@@ -13,7 +13,9 @@ apt-get update -y
 apt-get install -y infinit
 
 # add infinit to execution path
+sleep 10
 cd /opt/infinit
+sleep 10
 export PATH=$PWD/bin/:$PATH
 
 # creates a new user
