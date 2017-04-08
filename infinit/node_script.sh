@@ -13,9 +13,7 @@ apt-get update -y
 apt-get install -y infinit
 
 # add infinit to execution path
-echo "cd /opt/infinit"
-
-echo "export PATH=$PWD/bin/:$PATH"
+echo "export PATH=/opt/infinit/bin/:$PATH"
 
 # creates a new user
 # infinit-user --signup --name john --fullname "John Doe"
