@@ -19,7 +19,7 @@ servers = []
   ip = NETWORK + (FIRST_IP + i).to_s
   servers << {'name' => name, 'ip' => ip}
 
-  hosts << "\n" + name + "\t" + ip
+  hosts << "\n" + ip + "\t" + name
 end
 
 VAGRANTFILE_API_VERSION = "2"
