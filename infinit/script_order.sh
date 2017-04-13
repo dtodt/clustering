@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# first try
+# second try
 
 # 1
 # 1.1. create the user on first machine
@@ -14,15 +14,10 @@ infinit user create --push --name infinit2 --fullname "Infinit2"
 # 2.1. on first machine fetch the other machine users
 infinit user fetch --as infinit0 --name infinit1
 infinit user fetch --as infinit0 --name infinit2
-# 2.2. on first machine create passports to other machine users
-infinit passport create --as infinit0 --network cluster --user infinit1 --push
-infinit passport create --as infinit0 --network cluster --user infinit2 --push
-
-# 3
-# 3.1. on second machine fetch the other machine users
+# 2.2. on second machine fetch the other machine users
 infinit user fetch --as infinit1 --name infinit0
 infinit user fetch --as infinit1 --name infinit2
-# 3.2. on third machine fetch the other machine users
+# 2.3. on third machine fetch the other machine users
 infinit user fetch --as infinit2 --name infinit0
 infinit user fetch --as infinit2 --name infinit1
 
@@ -37,12 +32,17 @@ infinit silo create --filesystem --capacity 5GB --name local
 # 5
 # 5.1. on first machine create the network
 infinit network create --as infinit0 --storage local --replication-factor 3 --name cluster --push
-# 5.2. on second machine fetch the network and make a link
+# 5.2. on first machine create passports to other machine users
+infinit passport create --as infinit0 --network cluster --user infinit1 --push
+infinit passport create --as infinit0 --network cluster --user infinit2 --push
+# 5.3. on second machine fetch the passport, network and make a link
+infinit passport fetch --as infinit1
 infinit network fetch --as infinit1
 infinit network link --as infinit1 --name infinit0/cluster --storage local
-# 5.3. on second machine fetch the network and make a link
+# 5.4. on second machine fetch the passport, network and make a link
+infinit passport fetch --as infinit2
 infinit network fetch --as infinit2
-infinit network link --as infinit1 --name infinit0/cluster --storage local
+infinit network link --as infinit2 --name infinit0/cluster --storage local
 
 # 6
 # 6.1. on first machine create the volume
@@ -58,4 +58,4 @@ infinit volume mount --as infinit0 --name shared --cache --publish --mountpoint 
 # 7.2. on second machine mount the volume
 infinit volume mount --as infinit1 --name infinit0/shared --cache --publish --mountpoint mnt/shared/
 # 7.3. on third machine mount the volume
-infinit volume mount --as infinit1 --name infinit0/shared --cache --publish --mountpoint mnt/shared/
+infinit volume mount --as infinit2 --name infinit0/shared --cache --publish --mountpoint mnt/shared/
