@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# second try
+# third try
 
 # 1
 # 1.1. create the user on first machine
@@ -54,8 +54,8 @@ infinit volume fetch --as infinit2
 
 # 7
 # 7.1. on first machine mount the volume
-infinit volume mount --as infinit0 --name shared --cache --publish --mountpoint mnt/shared/
+infinit volume mount --as infinit0 --name shared --allow-root-creation --cache --publish --mountpoint mnt/shared/
 # 7.2. on second machine mount the volume
-infinit volume mount --as infinit1 --name infinit0/shared --cache --publish --mountpoint mnt/shared/
+infinit volume mount --as infinit1 --name infinit0/shared --allow-root-creation --cache --publish --mountpoint mnt/shared/
 # 7.3. on third machine mount the volume
-infinit volume mount --as infinit2 --name infinit0/shared --cache --publish --mountpoint mnt/shared/
+infinit volume mount --as infinit2 --name infinit0/shared --allow-root-creation --cache --publish --mountpoint mnt/shared/
